@@ -1,0 +1,6 @@
+# Let's ignore the config
+wp-config.php
+# Ignore the uploads 'cause it's massive
+wp-content/uploads/*
+# Ignore Prepros config
+prepros-6.config
