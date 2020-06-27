@@ -8,9 +8,10 @@
 
     <?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
 
-      <?php the_content(); ?>
+      <?php // the_content(); ?>
 
       <?php if(is_page('my-work')) { get_template_part('_parts/my-work'); } ?>
+      <?php if(is_page('about-me')) { get_template_part('_parts/about'); } ?>
 
     <?php endwhile; ?>
   </div>

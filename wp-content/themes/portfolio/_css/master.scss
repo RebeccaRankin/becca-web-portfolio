@@ -592,6 +592,53 @@ h5 {
 }
 
 /*---------------------------------------------------------------
+    My work page
+--------------------------------------------------------------- */
+.projects {
+  display: flex;
+  flex-wrap: wrap;
+
+  .project.copy {
+    margin: 0;
+    margin-bottom: 2em;
+    // display: flex;
+    // justify-content: center;
+    // flex-wrap: wrap;
+
+    h2 {
+      width: 100%;
+      text-align: center;
+      color: $primary;
+    }
+
+    p.designed-for {
+      display: block;
+      width: 100%;
+      font-size: .9em;
+
+    }
+
+    img {
+      max-width: 70%;
+      max-height: 225px;
+      margin: 1.5em auto 0;
+    }
+
+    @include bp480 {
+      width: 50%;
+    }
+
+    @include desktop {
+      width: 33%;
+
+      img {
+        max-width: 70%;
+      }
+    }
+  }
+}
+
+/*---------------------------------------------------------------
     Site Footer
 --------------------------------------------------------------- */
 
