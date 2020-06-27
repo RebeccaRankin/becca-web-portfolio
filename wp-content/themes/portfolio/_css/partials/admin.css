@@ -1,0 +1,120 @@
+/* Admin theme for custom dashboard*/
+* {
+  box-sizing: border-box;
+}
+
+h1, h2, h3, h4 {
+  font: 18px/1em sans-serif;
+  text-align: left!important;
+}
+
+h1 {
+  font-size: 1.6em;
+  margin: 0 0 40px 0!important;
+}
+
+h2 {
+  font-size: 1.4em;
+  margin: 0!important;
+}
+
+.about-wrap {
+  max-width: none;
+}
+
+.dash {
+  width: 100%;
+}
+
+.about-wrap .about-text {
+  margin: 0;
+}
+
+.dash div {  
+  background: #fff;
+  padding: 1em;
+  margin: 10px 0 10px 0;
+  font: 1.1em/1.6rem arial, sans-serif;
+}
+
+@media only screen and (min-width: 800px) {
+    .dash div {
+      float: left;
+      width: 49%;
+    }
+
+    .dash div:nth-of-type(odd){
+      float: left;
+      margin-right: 2%;
+    }
+}  
+
+  .dash div ol li {
+    font-size: .9rem;
+    line-height: 1.6rem;
+  }
+  .dash div h3 {
+    line-height: 1em;
+    margin: 0;
+  }
+  .dash div h4 {
+    color: #053b66;
+  }
+  .dash div img {
+    display: block;
+    margin: 10px auto;
+  }
+
+span#footer-thankyou,
+#footer-upgrade {
+  display: none; }
+
+body.wp-admin {
+  background-size: cover;
+}
+
+.admin-links li {
+  width: 100%;
+  float: left;
+  border: 1px solid #ccc;
+  border-radius: 2px
+}
+
+.admin-links li a {
+  width: 100%;
+  background: rgba(255,255,255,0.2);;
+  display: block;
+  padding: 3em 2em;
+  color: #666;
+  font-size: 1.4em;
+  text-decoration: none;
+  text-align: center;
+  transition: 0.3s;
+  border-bottom: 10px solid transparent;
+}
+
+.admin-links li a:hover {
+  background: rgba(255,255,255,0.6);
+  border-color: #777;
+}
+
+.admin-links:after {
+  content: '';
+  clear: both;
+  display: block;
+}
+
+@media (min-width: 950px) {
+  .admin-links li {
+    width: 49%;
+    margin: 0.5% 0.5% 0.5% 0;
+  }
+}
+
+@media (min-width: 1300px) {
+  .admin-links li {
+    width: 24%;
+    margin: 0.5% 0.5% 0.5% 0;
+  }
+}
+/*# sourceMappingURL=admin.css.map */

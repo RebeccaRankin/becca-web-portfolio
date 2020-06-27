@@ -1,0 +1,20 @@
+
+
+/*---------------------------------------------------------------
+    Colours
+--------------------------------------------------------------- */
+/* Replace with your own colour variables and find/replace them in master.scss and _forms.scss */
+$noir     	: #111;
+$blanc    	: #fff;
+
+$primary    : #801616;
+// $primary    : #501c20;
+$secondary  : lighten($primary, 65%);
+
+
+
+/*---------------------------------------------------------------
+    Typography
+--------------------------------------------------------------- */
+
+$primaryFont   : 'PT Sans';

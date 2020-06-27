@@ -1,0 +1,696 @@
+@import "partials/_reset.scss";
+@import "partials/_mixins-functions.scss";
+@import "partials/_cookies.scss";
+@import "partials/_back-to-top.scss";
+@import "partials/_variables.scss";
+@import "partials/_font-face.scss";
+@import "partials/_grid.scss";
+@import "partials/_media-queries.scss";
+@import "partials/_base.scss"; /*---------------------------------------------------------------
+    Global
+--------------------------------------------------------------- */
+
+body {
+  background: #fff;
+  color: #000;
+  font: 16px/1.5 $primaryFont, sans-serif;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  @include desktop {
+    padding-top: 0 !important;
+  }
+}
+
+.wrapper {
+  float: left;
+  width: 100%;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+  @include bp1250 {
+    padding: 0;
+  }
+}
+@import "partials/_grid.scss";
+
+.box-padding {
+  padding: 1em;
+}
+
+.flex {
+  @include flexbox;
+}
+
+img {
+  max-width: 100%;
+}
+
+a {
+  transition: 0.3s;
+}
+/*---------------------------------------------------------------
+    Typography
+--------------------------------------------------------------- */
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  margin: 0;
+  font-family: $primaryFont, sans-serif;
+  font-weight: normal;
+}
+
+h1 {
+  font-size: 2em;
+  line-height: initial;
+  @include bp1000 {
+    font-size: 2.5em;
+    line-height: 48px;
+  }
+}
+
+h2 {
+  line-height: initial;
+  font-size: 1.4em;
+  @include desktop {
+    font-size: 1.5em;
+  }
+  @include bp1000 {
+    font-size: 2em;
+    line-height: normal;
+  }
+}
+
+h3 {
+  font-size: 1.6em;
+}
+
+h4 {
+  font-size: 1.2em;
+}
+
+h5 {
+  font-size: 1.1em;
+}
+@mixin p-title {
+  color: $primary;
+  font-size: 1.5em;
+  font-weight: bold;
+  position: relative;
+  margin-bottom: 1em;
+}
+/*---------------------------------------------------------------
+    Buttons
+--------------------------------------------------------------- */
+
+.btn {
+  border: 2px solid $secondary;
+  color: $secondary;
+  padding: 0.4em;
+  display: inline-block;
+  text-decoration: none;
+  background-color: transparent;
+  min-width: 220px;
+  margin-top: 0.5em;
+  font-size: 1.2rem;
+
+  &:hover {
+    background: darken($primary, 10%);
+    color: $blanc;
+  }
+  // Define the button names & colours
+  $btnColors: noir $noir, blanc $blanc, primary $primary;
+  // Loop through colours above and create classes
+  @each $colorOption in $btnColors {
+    &.btn-#{nth($colorOption, 1)} {
+      background: nth($colorOption,2);
+      color: #fff;
+    }
+
+    &.btn-#{nth($colorOption, 1)}:hover {
+      background: lighten(nth($colorOption,2), 3%);
+    }
+  }
+
+  &.btn-blanc {
+    background-color: transparent;
+    color: $blanc;
+
+    &:hover {
+      background-color: darken($primary, 10%);
+      color: $blanc;
+    }
+  }
+
+  &.btn-border-blanc {
+    background-color: $primary;
+    color: $blanc;
+
+    &:hover {
+      background-color: darken($primary, 10%);
+    }
+  }
+
+  &:after {
+    content: "\f101";
+    float: right;
+    margin-top: 0.2em;
+    font: 1em/1 FontAwesome;
+  }
+}
+/*---------------------------------------------------------------
+    Mobile Top Bar
+--------------------------------------------------------------- */
+
+.mobile-top-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #eee;
+
+  &:after {
+    clear: both;
+    content: '';
+    display: block;
+  }
+
+  .stickyheader-left {
+    float: left;
+  }
+
+  .stickyheader-right {
+    float: right;
+  }
+
+  .stickyheader-btn {
+    width: 50%;
+    display: inline-block;
+    text-decoration: none;
+    padding: 0.5em;
+    text-align: center;
+  }
+
+  .menu-btn {
+    background: $primary;
+    color: $blanc;
+  }
+
+  @include bp1000 {
+    display: none;
+  }
+}
+/*---------------------------------------------------------------
+    Desktop Top Bar
+--------------------------------------------------------------- */
+
+.desktop-top-bar {
+  background: $primary;
+  color: #fff;
+  display: none;
+  padding: 1em 0;
+  position: relative;
+
+
+  @include bp1000 {
+    display: block;
+
+    .container {
+      @include flexbox;
+      @include align-items(center);
+      position: relative;
+    }
+  }
+}
+
+/*---------------------------------------------------------------
+    Site Header
+--------------------------------------------------------------- */
+
+.header {
+  .logo img,
+  .logo-second img {
+    display: block;
+    width: 100%;
+    max-width: 270px;
+    transition: 0.3s;
+    margin: 0 auto;
+    padding-bottom: 1em;
+    @include bp600 {
+      max-width: 320px;
+    }
+    @include desktop {
+      margin: 40px auto 0;
+    }
+    @include bp1000 {
+      float: left;
+      margin: 1em 0 0;
+    }
+  }
+
+  .header-top-right {
+    display: none;
+    @include bp1000 {
+      float: right;
+      display: block;
+    }
+  }
+}
+
+
+.skip-link {
+  width: 30px;
+  height: 30px;
+  background-image: url("../_static/images/down-arrow.svg");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  position: absolute;
+  bottom: 2em;
+  right: 2em;
+  z-index: 100;
+}
+
+/*---------------------------------------------------------------
+    Site Navigation
+--------------------------------------------------------------- */
+/* Mobile Nav (MMenu)
+------------------- */
+@import "partials/_mmenu.scss"; // Removes FOUC on desktop
+
+#mmenu:not(.mm-menu) {
+  display: none;
+}
+@media only screen and (max-width: $desktop-width) {
+  .mm-menu .current-menu-item,
+  .mm-menu .current-menu-parent,
+  .mm-menu .sub-menu .current-menu-item {
+    background: darken($primary, 15%);
+    color: $blanc;
+  }
+}
+/* Desktop Nav
+------------------- */
+.main-nav {
+  display: none;
+  margin: 1em 0;
+
+  li {
+    display: inline-block;
+    position: relative;
+    margin-right: -4px;
+
+    &:not(:last-child):after {
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 1px;
+      height: 15px;
+      background: $noir;
+      display: block;
+      content: '';
+    }
+  }
+
+  // Active state
+  .current-menu-item > a,
+  .current-menu-parent > a,
+  .current-menu-ancestor > a {
+    border-bottom: 2px solid $primary;
+
+    &:hover {
+      background: darken($primary, 15%);
+    }
+  }
+
+  a {
+    display: inline-block;
+    text-decoration: none;
+    color: $noir;
+    padding: 5px 10px;
+    margin: 10px 15px;
+    font-size: 0.9em;
+
+    &:hover {
+      color: $blanc;
+      background: $primary;
+    }
+  }
+
+  @include bp480 {
+    display: block;
+    text-align: center;
+
+    .container {
+      .main-navigation {
+        @include flexbox;
+        @include justify-content(space-between);
+        @include align-items(center);
+      }
+    }
+  }
+  @include bp1200 {
+    a {
+      font-size: 1em;
+      padding: 5px 10px;
+      margin: 5px 20px;
+    }
+  }
+}
+
+/*---------------------------------------------------------------
+    Hero
+--------------------------------------------------------------- */
+
+.hero.picturefill {
+  .hero-content {
+    font-size: 3em;
+  }
+}
+
+.hero.bgcover {
+  position: relative;
+  z-index: 1;
+  color: #fff;
+
+  &:after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: -2;
+    background-size: cover;
+    background-position: center;
+    -webkit-filter: grayscale(40%);
+    filter: grayscale(40%);
+  }
+
+  &:before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    z-index: -1;
+    background-color: rgba($primary, .7);
+  }
+
+  .hero-content {
+    padding: 1em 0;
+    font-size: 1.5em;
+    color: #fff;
+
+    h2 {
+      span {
+        @include bp480 {
+          display: block;
+        }
+
+        @include bp600 {
+          display: inline-block;
+        }
+      }
+    }
+
+    .btn {
+      width: 100%;
+
+      @include bp480 {
+        width: auto;
+      }
+    }
+  }
+}
+
+.hero.bgcover {
+
+  @include desktop {
+    display: flex;
+    align-items: flex-end;
+  }
+  .hero-content {
+    padding: 1em 0;
+    width: 100%;
+
+    @include desktop {
+      padding: 2em 1em;
+      margin: 0 0 3em 0;
+    }
+
+    h2 span {
+      font-weight: bold;
+    }
+
+    p {
+      line-height: initial;
+      padding: 0.5em 0;
+      @include desktop {
+        line-height: 36px;
+        padding: 0;
+      }
+    }
+  }
+}
+@include bp1200 {
+  .hero.bgcover {
+    height: 550px;
+
+    .hero-content {
+      padding: 0;
+    }
+  }
+}
+@include bp1600 {
+  .hero.bgcover {
+    height: 600px;
+  }
+}
+
+/*---------------------------------------------------------------
+    Site Content
+--------------------------------------------------------------- */
+.site-main {
+  display: flex;
+  width: 100%;
+}
+.wrapper.main {
+  position: relative;
+  margin-top: 2em;
+
+
+  // &:after {
+    // background-image: url("../_static/images/main-bg.jpg");
+    // background-size: 100%;
+    // background-position: top center;
+    // background-repeat: no-repeat;
+    // z-index: -100;
+    // position: absolute;
+    // top: 0;
+    // left: 0;
+    // bottom: 0;
+    // right: 0;
+    // width: 100%;
+    // display: block;
+    // content: '';
+  // }
+
+  .section {
+    padding: 2em 1em;
+    margin-bottom: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    h2 {
+      color: $primary;
+    }
+
+    img {
+      max-width: 50%;
+    }
+
+    &.section2 {
+      flex-direction: row-reverse;
+
+      .content {
+        margin-left: 2em;
+      }
+    }
+  }
+}
+
+/* Copy
+------------------- */
+
+.copy {
+  background: $blanc;
+  padding: 1em;
+
+  > * + * {
+    margin-top: 1.5em;
+  }
+
+  > ul {
+    margin-left: 1em;
+    list-style: none;
+  }
+
+  > ul > li {
+    padding-bottom: 1em;
+    position: relative;
+
+    &:last-of-type {
+      padding-bottom: 0;
+    }
+
+    &:before {
+      display: inline-block;
+      color: $primary;
+      padding-right: 0.5em;
+      font-family: FontAwesome;
+      content: '\f0da';
+      position: absolute;
+      top: 0;
+      left: -15px;
+    }
+  }
+
+  a {
+    color: $primary;
+    font-weight: bold;
+
+    &:hover {
+      color: $noir;
+      text-decoration: none;
+    }
+  }
+
+  img {
+    display: block;
+  }
+
+  .btn {
+    margin-top: 1em;
+    font-size: 1rem;
+    padding: 1rem;
+  }
+
+  @include desktop {
+    margin: 1em 1em 0 0;
+  }
+  @include bp1000 {
+    margin: 0 1em 0 0;
+  }
+}
+
+/*---------------------------------------------------------------
+    Site Footer
+--------------------------------------------------------------- */
+
+.footer {
+  clear: both;
+  overflow: hidden;
+  text-align: center;
+
+  ul {
+    list-style: none;
+  }
+
+  li {
+    display: block;
+    margin: 0.5em 0;
+
+    &.current-menu-item {
+      font-weight: bold;
+    }
+  }
+
+  p {
+    line-height: 1.7em;
+
+    &.title {
+      font-size: 1.2em;
+      font-weight: bold;
+    }
+  }
+
+  a {
+    color: $primary;
+    text-decoration: none;
+
+    &:hover {
+      font-weight: bold;
+      margin-left: 5px;
+    }
+  }
+
+  .adtrak img {
+    width: 90px;
+    max-width: 90px;
+    padding: 1em 0 0.5em;
+    @include desktop {
+      padding: 1em 0;
+    }
+  }
+
+  .sub-menu {
+    margin-left: 15px;
+  }
+
+  .sub-menu a {
+    position: relative;
+
+    &:before {
+      display: inline-block;
+      padding-right: 0.5em;
+      font-family: FontAwesome;
+      line-height: 1;
+      content: '\f105';
+      position: absolute;
+      top: 0;
+      left: -15px;
+    }
+  }
+  @include desktop {
+    text-align: left;
+
+    .info {
+      text-align: right;
+    }
+  }
+  @include bp1200 {
+    margin-top: 40px;
+  }
+}
+
+.footer-main {
+  background: #fff;
+  padding: 2em 1em 1em;
+
+  .grid {
+    margin-bottom: 1em;
+
+    &3_12:nth-of-type(3) {
+      p:last-of-type {
+        color: $primary;
+      }
+    }
+    @include desktop {
+      margin-bottom: 0;
+      padding: 0 1em 2em;
+    }
+  }
+}
+
+.footer-bottom {
+  background: #fff;
+  padding: 2em;
+}

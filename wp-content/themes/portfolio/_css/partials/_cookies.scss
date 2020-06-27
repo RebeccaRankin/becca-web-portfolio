@@ -1,0 +1,20 @@
+
+.cookies {
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    padding: .5em 10%;
+    text-align: center;
+    background: #000;
+    border-top: 1px solid #ccc;
+    font-size: .75em;
+    color: #fff;
+      
+      a {
+        color: rgb(232, 176, 0);
+      }
+
+      a:hover {
+        opacity: 0.8;
+      }
+}
