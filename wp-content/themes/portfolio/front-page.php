@@ -42,7 +42,7 @@
         <div class="content">
           <h2>My Portfolio</h2>
           <div class="copy">
-            <?php the_content(); ?>
+            <?php the_field('portfolio_text'); ?>
 
               <?php if(have_rows('portfolio_button')): while (have_rows('portfolio_button')): the_row(); ?>
                 <a class="btn" href="<?php the_sub_field('button_link'); ?>">
@@ -71,7 +71,7 @@
         <div class="content">
           <h2>Get In Touch</h2>
           <div class="copy">
-            <?php the_content(); ?>
+            <?php the_field('contact_text'); ?>
 
             <?php if(have_rows('contact_button')): while (have_rows('contact_button')): the_row(); ?>
               <a class="btn" href="<?php the_sub_field('button_link'); ?>">
