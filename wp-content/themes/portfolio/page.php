@@ -12,6 +12,7 @@
 
       <?php if(is_page('my-work')) { get_template_part('_parts/my-work'); } ?>
       <?php if(is_page('about-me')) { get_template_part('_parts/about'); } ?>
+      <?php if(is_page('contact')) { get_template_part('_parts/contact'); } ?>
 
     <?php endwhile; ?>
   </div>

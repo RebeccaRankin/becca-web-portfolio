@@ -7,9 +7,9 @@
 
 <div class="wrapper">
 
-	<a class="skip-link screen-reader-text" href="#content">
+	<!-- <a class="skip-link screen-reader-text" href="#content">
 		<?php// _e( 'Skip to content', 'twentyseventeen' ); ?>
-	</a>
+	</a> -->
 
 	<header class="site-header" role="banner">
 

@@ -43,7 +43,7 @@ function site_script_loader() {
 	// Style sheets
     wp_enqueue_style( 'master', get_stylesheet_directory_uri() . '/_css/master.css' );
     // Scripts
-    wp_enqueue_script( 'production', get_template_directory_uri() .'/_js/production.min.js','','', true  );
+    wp_enqueue_script( 'production', get_template_directory_uri() .'/_js/production.min.js','','', false  );
     wp_enqueue_script('fontawesome', 'https://use.fontawesome.com/731f5cd381.js', [], '', true );
 
     /* ========================================================================================================================

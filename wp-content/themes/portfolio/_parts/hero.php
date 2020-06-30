@@ -83,6 +83,50 @@ if ( is_front_page() ) { ?>
 
 	</section>
 
+<?php  } elseif (is_404()) { ?>
+	<section class="wrapper hero bgcover">
+
+			<?php	if ( $thumb_id ) : ?>
+
+				<style scoped>
+					.hero:after {
+					    background-image: url(<?php echo $thumb_url_small; ?>);
+					}
+				    @media (min-width: 600px) {
+						.hero:after {
+					       background-image: url(<?php echo $thumb_url; ?>);
+					    }
+				    }
+				    @media (min-width: 1200px) {
+						.hero:after {
+					      background-image: url(<?php echo $thumb_url_large; ?>);
+					    }
+				    }
+				</style>
+
+			<?php else : ?>
+
+				<style scoped>
+					.hero {
+				      background-color: #eee;
+				    }
+				</style>
+
+			<?php endif; ?>
+
+		<div class="container">
+
+			<div class="hero-content">
+
+				<h2>Sorry page not found</h2>
+
+				<p>404 Error</p>
+
+			</div>
+
+		</div>
+
+	</section>
 <?php  } else { ?>
 
 	<?php /* Internal page hero */ ?>

@@ -489,7 +489,7 @@ h5 {
   @include bp1200 {
     height: 550px;
   }
-  
+
   @include bp1600 {
     height: 600px;
   }
@@ -588,6 +588,11 @@ h5 {
     margin-top: 1em;
     font-size: 1rem;
     padding: 1rem;
+
+    &:hover {
+      color: $blanc;
+      background: rgba($primary, .9);
+    }
   }
 
   @include desktop {
@@ -612,7 +617,7 @@ h5 {
     // justify-content: center;
     // flex-wrap: wrap;
 
-    h2 {
+    h3 {
       width: 100%;
       text-align: center;
       color: $primary;
@@ -650,6 +655,58 @@ h5 {
 }
 
 /*---------------------------------------------------------------
+    Single Portfolio pages
+--------------------------------------------------------------- */
+.single-portfolio {
+  .wrapper.main {
+    .section {
+      display: block;
+
+      @include desktop {
+        display: flex;
+      }
+    }
+  }
+}
+
+.designed-for {
+  font-size: .8em;
+  font-style: italic;
+}
+
+.portfolio-gallery {
+  display: block;
+  clear: both;
+  width: 100%;
+
+  #gallery-1 {
+
+    .gallery-item {
+
+      img {
+        max-width: 100%;
+        height: auto;
+        // width: 100%;
+        border: 0!important;
+      }
+    }
+  }
+}
+
+/*---------------------------------------------------------------
+    404 page
+--------------------------------------------------------------- */
+.error404 {
+  .hero.bgcover {
+    height: 200px;
+
+    @include bp480 {
+      height: 350px;
+    }
+  }
+}
+
+/*---------------------------------------------------------------
     Site Footer
 --------------------------------------------------------------- */
 
@@ -673,11 +730,6 @@ h5 {
 
   p {
     line-height: 1.7em;
-
-    &.title {
-      font-size: 1.2em;
-      font-weight: bold;
-    }
   }
 
   a {
@@ -690,39 +742,8 @@ h5 {
     }
   }
 
-  .adtrak img {
-    width: 90px;
-    max-width: 90px;
-    padding: 1em 0 0.5em;
-    @include desktop {
-      padding: 1em 0;
-    }
-  }
-
-  .sub-menu {
-    margin-left: 15px;
-  }
-
-  .sub-menu a {
-    position: relative;
-
-    &:before {
-      display: inline-block;
-      padding-right: 0.5em;
-      font-family: FontAwesome;
-      line-height: 1;
-      content: '\f105';
-      position: absolute;
-      top: 0;
-      left: -15px;
-    }
-  }
   @include desktop {
     text-align: left;
-
-    .info {
-      text-align: right;
-    }
   }
   @include bp1200 {
     margin-top: 40px;
@@ -730,25 +751,17 @@ h5 {
 }
 
 .footer-main {
-  background: #fff;
+  background: rgba($primary, .5);
   padding: 2em 1em 1em;
 
-  .grid {
-    margin-bottom: 1em;
-
-    &3_12:nth-of-type(3) {
-      p:last-of-type {
-        color: $primary;
-      }
-    }
-    @include desktop {
-      margin-bottom: 0;
-      padding: 0 1em 2em;
-    }
+  .main-nav li:not(:last-child):after {
+    display: none;
   }
 }
 
 .footer-bottom {
-  background: #fff;
-  padding: 2em;
+  background: darken($primary, .2);
+  padding: 1em;
+  text-align: center;
+  color: $blanc;
 }
