@@ -659,6 +659,11 @@ h5 {
 --------------------------------------------------------------- */
 .single-portfolio {
   .wrapper.main {
+    .content {
+      @include desktop {
+        max-width: 75%;
+      }
+    }
     .section {
       display: block;
 
